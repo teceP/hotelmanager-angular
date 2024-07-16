@@ -1,0 +1,24 @@
+/* Globale Stile für den Dialog */
+.error-dialog-container {
+    padding: 16px; /* Innenabstand für den Dialoginhalt */
+    max-width: 400px; /* Maximale Breite des Dialogs */
+    text-align: center; /* Zentriert den Inhalt horizontal */
+
+    /* Füge Schatten hinzu, um den Dialog hervorzuheben */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Abgerundete Ecken für den Dialog */
+    background-color: #fff; /* Hintergrundfarbe des Dialogs */
+}
+
+.error-dialog-content {
+    margin-bottom: 16px; /* Abstand unterhalb des Inhalts */
+}
+
+.error-dialog-actions {
+    display: flex;
+    justify-content: flex-end; /* Buttons am rechten Rand ausrichten */
+}
+
+.error-dialog-actions button {
+    margin-left: 8px; /* Abstand zwischen den Buttons */
+}

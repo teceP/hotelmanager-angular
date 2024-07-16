@@ -1,0 +1,54 @@
+<h2>Edit Room</h2>
+
+<div *ngIf="room">
+  <div>
+    <label for="room-id">ID: </label>
+    <input id="room-id" [(ngModel)]="room.id" disabled>
+  </div>
+  <div>
+    <label for="room-name">Room Name: </label>
+    <input id="room-name" [(ngModel)]="room.name">
+  </div>
+  <div>
+    <label for="room-description">Description: </label>
+    <input id="room-description" [(ngModel)]="room.description">
+  </div>
+  <div>
+    <label for="room-hasMinibar">Has Minibar: </label>
+    <input type="checkbox" id="room-hasMinibar" [(ngModel)]="room.hasMinibar">
+  </div>
+  <div>
+    <label for="room-size">Room Size: </label>
+    <select id="room-size" [(ngModel)]="room.roomSize">
+      <option value="DOUBLE">Double</option>
+      <option value="SINGLE">Single</option>
+      <option value="SUITE">Suite</option>
+    </select>
+  </div>
+  <button type="button" class="delete-button" (click)="deleteRoom(room.id)">Delete Room</button>
+  <button type="button" class="update-button" (click)="updateRoom()">Update Room</button>
+  <button type="button" (click)="goBack()">Go Back</button>
+
+    <h2>Edit Bookings</h2>
+  <ul>
+    <li *ngFor="let booking of room.bookings">
+      <div>
+        <span>Booking ID: </span>{{booking.id}}
+      </div>
+      <div>
+        <label for="booking-startDate-{{booking.id}}">Start Date: </label>
+        <input id="booking-startDate-{{booking.id}}" [(ngModel)]="booking.startDate" type="date">
+      </div>
+      <div>
+        <label for="booking-endDate-{{booking.id}}">End Date: </label>
+        <input id="booking-endDate-{{booking.id}}" [(ngModel)]="booking.endDate" type="date">
+      </div>
+      <div>
+        <button (click)="updateBooking(booking)">Update Booking</button>
+        <button class="delete-booking" (click)="deleteBooking(booking.id)">Delete Booking</button>
+      </div>
+    </li>
+  </ul>
+
+
+</div>

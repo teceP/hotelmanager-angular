@@ -1,0 +1,104 @@
+h2 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+
+}
+input {
+  padding: .5rem;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  display: block;
+}
+
+input:focus {
+  outline: #336699 auto 1px;
+}
+
+li {
+  list-style-type: none;
+}
+.search-result li a {
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  display: inline-block;
+  width: 100%;
+  max-width: 600px;
+  padding: .5rem;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+}
+
+.search-result li a:hover {
+  background-color: #435A60;
+  color: white;
+}
+
+ul.search-result {
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.search-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.room-card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem;
+  transition: box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.room-card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.room-card-header {
+  background-color: #c7cce7;
+  color: white;
+  padding: 16px;
+  text-align: center;
+}
+
+.room-card-body {
+  padding: 16px;
+}
+
+.room-card-body p {
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.room-card-body p strong {
+  color: #bac3f5;
+}
+
+.search-form {
+  margin-bottom: 20px;
+}
+
+.date-picker-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px; /* Adjust margin top as needed */
+}
+
+.inline-calendar-card {
+  width: 300px;
+}

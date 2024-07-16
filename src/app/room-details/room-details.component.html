@@ -1,0 +1,30 @@
+<div *ngIf="room">
+    <div class="room-details">
+        <h2>Room Details</h2>
+        <div><span>ID: </span>{{room.id}}</div>
+        <div><span>Name: </span>{{room.name}}</div>
+        <div><span>Description: </span>{{room.description}}</div>
+        <div><span>Has Minibar: </span>{{room.hasMinibar}}</div>
+        <div><span>Room Size: </span>{{ firstCharUpper(room.roomSize) }}</div>
+      
+        <div>
+            <span>Bookings: </span>
+          </div>
+          <ul>
+            <li *ngFor="let booking of room.bookings">
+              <div>
+                <span>Booking ID: </span>{{booking.id}}
+                <button class="delete-booking" (click)="deleteBooking(booking.id)">Delete booking</button>
+              </div>
+              <div><span>Start Date: </span>{{booking.startDate | date:'shortDate'}}</div>
+              <div><span>End Date: </span>{{booking.endDate | date:'shortDate'}}</div>
+            </li>
+          </ul>
+
+          <div class="button-container">
+            <button type="button" class="update-button" routerLink="/edit/{{room.id}}">Update Room</button>
+            <button type="button" (click)="goBack()">Go Back</button>
+          </div>
+</div>
+
+<app-add-booking [roomId]="room.id"></app-add-booking>

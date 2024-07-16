@@ -1,0 +1,13 @@
+.room-booking {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 20px;
+    position: relative; /* Damit die absolute Positionierung innerhalb dieses Elements funktioniert */
+  }
+
+  .room-booking h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+  }

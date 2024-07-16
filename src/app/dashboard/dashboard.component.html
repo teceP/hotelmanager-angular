@@ -1,0 +1,21 @@
+<h2>All Rooms</h2>
+
+<!--
+<div class="rooms-menu">
+    <a *ngFor="let room of rooms" routerLink="/details/{{room.id}}">
+        {{room.name}}
+    </a>
+</div>-->
+
+<div class="search-results">
+    <div *ngFor="let room of rooms" class="room-card" routerLink="/details/{{room.id}}">
+      <div class="room-card-header">
+        <h3>{{ room.name }}</h3>
+      </div>
+      <div class="room-card-body">
+        <p><strong>Description:</strong> {{ room.description }}</p>
+        <p><strong>Room Size:</strong> {{ firstCharUpper(room.roomSize) }}</p>
+        <p><strong>Minibar:</strong> {{ room.hasMinibar ? 'Yes' : 'No' }}</p>
+      </div>
+    </div>
+  </div>

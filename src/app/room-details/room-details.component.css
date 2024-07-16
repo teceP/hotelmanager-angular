@@ -1,0 +1,88 @@
+label {
+    color: #435960;
+    font-weight: bold;
+  }
+  
+  input {
+    font-size: 1em;
+    padding: .5rem;
+  }
+  
+  button {
+    margin-top: 20px;
+    margin-right: .5rem;
+    background-color: #eee;
+    padding: 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  button:hover {
+    background-color: #cfd8dc;
+  }
+  
+  button:disabled {
+    background-color: #eee;
+    color: #ccc;
+    cursor: auto;
+  }
+
+  .button-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .button-container button {
+    margin-left: 10px; /* Optional: Abstand zwischen den Buttons */
+  }
+
+  /* Styles for the room details component */
+
+  .room-details h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .room-details div {
+    margin: .5rem 0;
+  }
+  
+  .room-details span {
+    font-weight: bold;
+  }
+  
+  .room-details ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+  }
+  
+  .room-details li {
+    margin: 1rem 0;
+    padding: .5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+  
+  .room-details li div {
+    margin: .3rem 0;
+  }
+  
+  .room-details {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 20px;
+    position: relative; /* Damit die absolute Positionierung innerhalb dieses Elements funktioniert */
+  }
+  .delete-booking {
+    color: red;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 1rem;
+  }

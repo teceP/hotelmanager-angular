@@ -1,0 +1,24 @@
+<h2>Add Room</h2>
+
+<div>
+    <label for="room-name">Room Name: </label>
+    <input id="room-name" #roomName>
+</div>
+<div>
+    <label for="room-description">Room Description: </label>
+    <input id="room-description" #roomDescription>
+</div>
+<div class="checkbox-container">
+    <label for="room-has-minibar">Has Minibar: </label>
+    <input id="room-has-minibar" type="checkbox" #roomHasMinibar>
+</div>
+<div>
+    <label for="room-size">Room Size: </label>
+    <select id="room-size" #roomSize>
+        <option value="DOUBLE">DOUBLE</option>
+        <option value="SINGLE">SINGLE</option>
+        <option value="SUITE">SUITE</option>
+    </select>
+</div>
+<button type="button" class="add-button" (click)="addRoom(roomName.value, roomDescription.value, roomHasMinibar.checked, roomSize.value)">Add Room</button>
+<div class="exception-container">{{exeption}}</div>

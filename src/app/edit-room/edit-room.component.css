@@ -1,0 +1,114 @@
+/* edit-room.component.css */
+:host {
+    display: block;
+    margin: 20px;
+  }
+  
+  h2 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: inline-block;
+    width: 150px;
+    font-weight: bold;
+    color: #435960;
+    margin-top: 10px;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  select {
+    width: calc(100% - 160px);
+    padding: 0.5rem;
+    font-size: 1em;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  input[type="checkbox"] {
+    margin-top: 12px;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button.update-button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+  }
+  
+  button.update-button:hover {
+    background-color: #4cae4c;
+  }
+
+  button.delete-button {
+    background-color: #e64141;
+    color: white;
+    border: none;
+  }
+  
+  button.delete-button:hover {
+    background-color: #c73a3a;;
+  }
+  
+  button.delete-booking {
+    color: red;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    padding-left: 10px;
+  }
+  
+  button:hover {
+    background-color: #cfd8dc;
+  }
+  
+  button.delete-booking:hover {
+    color: darkred;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  ul li {
+    margin-bottom: 10px;
+  }
+  
+  ul li div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  div {
+    margin-bottom: 10px;
+  }
+  
+  div.room-details {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  div input[type="text"],
+  div input[type="date"] {
+    width: calc(100% - 160px);
+  }
+  
