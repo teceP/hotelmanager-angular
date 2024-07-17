@@ -1,5 +1,6 @@
 import { Component, Inject, Injectable } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ApiError } from '../api-error';
 
 @Component({
   selector: 'app-error-dialog',
@@ -9,7 +10,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 export class ErrorDialogComponent{
   constructor(public dialogRef: MatDialogRef<ErrorDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: ApiError) { }
 
     close() {
     this.dialogRef.close();

@@ -6,13 +6,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs';
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RoomService {
 
-  private hotelmanagerUrl = '/url/api/v1/rooms';
+  //private hotelmanagerUrl = '/url/api/v1/rooms';
+  private apiUrl = `${environment.apiUrl}/api/v1/rooms`;
+
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
@@ -24,58 +27,58 @@ export class RoomService {
 
   getRooms(): Observable<Room[]>{
     this.messageService.add('RoomService: fetched rooms')
-    return this.http.get<Room[]>(this.hotelmanagerUrl)
+    return this.http.get<Room[]>(this.apiUrl)
       .pipe(
         tap(rooms => this.log(`fetched rooms: %${rooms.forEach(r => this.log(`${r.id} ${r.name} ${r.description}`))}`)),
         catchError(error => {
-          this.openErrorDialog(error.message + ", " + error.error.error);
+          this.openErrorDialog(error);
           return throwError(() => error);
         })
       );
   }
 
   getRoom(id: number): Observable<Room> {
-    const url = `${this.hotelmanagerUrl}/${id}`;
+    const url = `${this.apiUrl}/${id}`;
     return this.http.get<Room>(url).pipe(
       tap(_ => this.log(`fetched room id=${id}`)),
       catchError(error => {
-        this.openErrorDialog(error.message + ", " + error.error.error);
+        this.openErrorDialog(error);
         return throwError(() => error);
       })
     );
   }
 
   updateRoom(room: Room): Observable<any> {
-    return this.http.put(this.hotelmanagerUrl, room, this.httpOptions)
+    return this.http.put(this.apiUrl, room, this.httpOptions)
       .pipe(
         tap(_ => this.log(`updated room id=${room.id}`)),
         catchError(error => {
-          this.openErrorDialog(error.message + ", " + error.error.error);
+          this.openErrorDialog(error);
           return throwError(() => error);
         })
       );
   }
 
   addRoom(room: Room): Observable<Room> {
-    return this.http.post<Room>(this.hotelmanagerUrl, room, this.httpOptions)
+    return this.http.post<Room>(this.apiUrl, room, this.httpOptions)
       .pipe(
         tap((newRoom: Room) => this.log(`added room w/ id=${newRoom.id}`)),
         catchError(error => {
-          this.openErrorDialog(error.message + ", " + error.error.error);
+          this.openErrorDialog(error);
           return throwError(() => error);
         })
       );
   }
 
   deleteRoom(id: number): Observable<Room> {
-    const url = `${this.hotelmanagerUrl}/${id}`
+    const url = `${this.apiUrl}/${id}`
     this.log(`del url: ${url}`)
 
     return this.http.delete<Room>(url, this.httpOptions)
     .pipe(
       tap(_ => this.log(`deleted room id=${id}`)),
       catchError(error => {
-        this.openErrorDialog(error.message + ", " + error.error.error);
+        this.openErrorDialog(error);
         return throwError(() => error);
       })
     )
@@ -103,13 +106,13 @@ export class RoomService {
       }
 
       const queryString = params.join('&');
-      const url = `${this.hotelmanagerUrl}/filter?${queryString}`;
+      const url = `${this.apiUrl}/filter?${queryString}`;
       console.log('Query: ' + url);
 
       return this.http.get<Room[]>(url).pipe(
         tap(x => x.length ? this.log("found rooms matching") : this.log('no rooms matching')),
         catchError(error => {
-          this.openErrorDialog(error.message + ", " + error.error.error);
+          this.openErrorDialog(error);
           return throwError(() => error);
         })
       );
@@ -120,9 +123,9 @@ export class RoomService {
   }
 
 
-  private openErrorDialog(errorMessage: string): void {
+  private openErrorDialog(error: any): void {
     this.dialog.open(ErrorDialogComponent, {
-      data: {message: errorMessage}
+      data: error,
     });
   }
 }

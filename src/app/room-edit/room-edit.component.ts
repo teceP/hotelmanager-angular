@@ -7,11 +7,11 @@ import { BookingService } from '../booking.service';
 import { Booking } from '../booking';
 
 @Component({
-  selector: 'app-edit-room',
-  templateUrl: './edit-room.component.html',
-  styleUrl: './edit-room.component.css'
+  selector: 'app-room-edit',
+  templateUrl: './room-edit.component.html',
+  styleUrl: './room-edit.component.css'
 })
-export class EditRoomComponent {
+export class RoomEditComponent {
 
   room: Room | undefined;
 

@@ -1,6 +1,10 @@
 <div mat-dialog-container class="error-dialog-container">
     <div mat-dialog-content>
+        <p>{{ data.path }}</p>
+        <p>{{ data.statusCode }}</p>
         <p>{{ data.message }}</p>
+        <p>{{ data.localDateTime }}</p>
+        <p>{{ data.entries.length > 0 ? data.entries : '' }}</p>
     </div>
 
     <div mat-dialog-actions class="error-dialog-actions">

@@ -7,13 +7,17 @@ import { catchError, map, tap } from 'rxjs';
 import { Booking } from './booking';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
+import { environment } from '../environments/environment';
+import { error } from 'console';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookingService {
 
-  private hotelmanagerUrl = '/url/api/v1/bookings';
+  //private hotelmanagerUrl = '/url/api/v1/bookings';
+  private apiUrl = `${environment.apiUrl}/api/v1/bookings`;
+  
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
@@ -25,39 +29,39 @@ export class BookingService {
     addBooking(roomId: number, startDate?: Date, endDate?: Date) {
       const body = { startDate, endDate };
   
-      return this.http.post<any>(`${this.hotelmanagerUrl}/${roomId}`, body)
+      return this.http.post<any>(`${this.apiUrl}/${roomId}`, body)
         .pipe(
           tap((newBooking: any) => {
             console.log(`Added booking with id=${newBooking.id}`); 
             window.location.reload();}
           ),
           catchError(error => {
-            this.openErrorDialog(error.message + ", " + error.error.error);
+            this.openErrorDialog(error);
             return throwError(() => error);
           })
         );
     }
     
   updateBooking(booking: Booking): Observable<any> {
-    return this.http.put(this.hotelmanagerUrl, booking, this.httpOptions)
+    return this.http.put(this.apiUrl, booking, this.httpOptions)
       .pipe(
         tap(_ => this.log(`updated booking id=${booking.id}`)),
         catchError(error => {
-          this.openErrorDialog(error.message + ", " + error.error.error);
+          this.openErrorDialog(error);
           return throwError(() => error);
         })
       );
   }
 
   deleteBooking(id: number): Observable<Room> {
-    const url = `${this.hotelmanagerUrl}/${id}`
+    const url = `${this.apiUrl}/${id}`
     this.log(`del url: ${url}`)
 
     return this.http.delete<Room>(url, this.httpOptions)
     .pipe(
       tap(_ => this.log(`deleted room id=${id}`)),
       catchError(error => {
-        this.openErrorDialog(error.message + ", " + error.error.error);
+        this.openErrorDialog(error);
         return throwError(() => error);
       })
       );
@@ -67,9 +71,9 @@ export class BookingService {
     this.messageService.add(`BookingService: ${message}`);
   }
 
-  private openErrorDialog(errorMessage: string): void {
+  private openErrorDialog(error: any): void {
     this.dialog.open(ErrorDialogComponent, {
-      data: {message: errorMessage}
+      data: error,
     });
   }
 }

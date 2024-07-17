@@ -6,11 +6,11 @@ import { MessageService } from '../message.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-add-room',
-  templateUrl: './add-room.component.html',
-  styleUrl: './add-room.component.css'
+  selector: 'app-room-add',
+  templateUrl: './room-add.component.html',
+  styleUrl: './room-add.component.css'
 })
-export class AddRoomComponent {
+export class RoomAddComponent {
 
   exeption: string = "";
 

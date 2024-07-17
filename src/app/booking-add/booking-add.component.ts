@@ -7,11 +7,11 @@ import { Booking } from '../booking';
 import { MessageService } from '../message.service';
 
 @Component({
-  selector: 'app-add-booking',
-  templateUrl: './add-booking.component.html',
-  styleUrl: './add-booking.component.css'
+  selector: 'app-booking-add',
+  templateUrl: './booking-add.component.html',
+  styleUrl: './booking-add.component.css'
 })
-export class AddBookingComponent {
+export class BookingAddComponent {
 
   @Input({ required: true}) roomId!: number;
 
