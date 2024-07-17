@@ -13,7 +13,7 @@ import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 })
 export class BookingService {
 
-  private hotelmanagerUrl = '/url/api/bookings';
+  private hotelmanagerUrl = '/url/api/v1/bookings';
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }

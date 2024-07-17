@@ -12,7 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class RoomService {
 
-  private hotelmanagerUrl = '/url/api/rooms';
+  private hotelmanagerUrl = '/url/api/v1/rooms';
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
