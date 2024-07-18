@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { BookingService } from '../booking.service';
 import { Router } from '@angular/router';
 import { catchError, Observable, of, tap } from 'rxjs';
-import { Booking } from '../booking';
-import { MessageService } from '../message.service';
+import { BookingService } from '../../service/booking.service';
+import { MessageService } from '../../service/message.service';
+import { Booking } from '../../model/booking';
 
 @Component({
   selector: 'app-booking-add',
@@ -20,7 +20,7 @@ export class BookingAddComponent {
     end: new FormControl<Date | null>(null)
   });
 
-  constructor(private bookingService: BookingService, private router: Router, private messageService:MessageService){}
+  constructor(private bookingService: BookingService, private router: Router, private messageService: MessageService){}
 
   addBooking(): void {
     const startDate = this.range.get('start')?.value;

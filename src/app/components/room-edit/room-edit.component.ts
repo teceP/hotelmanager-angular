@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Room } from '../room';
-import { RoomService } from '../room.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { BookingService } from '../booking.service';
-import { Booking } from '../booking';
+import { RoomService } from '../../service/room.service';
+import { BookingService } from '../../service/booking.service';
+import { Room } from '../../model/room';
+import { Booking } from '../../model/booking';
 
 @Component({
   selector: 'app-room-edit',

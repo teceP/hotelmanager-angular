@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Room } from '../room';
-import { RoomService } from '../room.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { BehaviorSubject, catchError, tap } from 'rxjs';
+import { Room } from '../../model/room';
+import { RoomService } from '../../service/room.service';
 
 @Component({
   selector: 'app-room-search',

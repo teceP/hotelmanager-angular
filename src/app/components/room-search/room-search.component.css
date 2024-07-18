@@ -102,3 +102,49 @@ ul.search-result {
 .inline-calendar-card {
   width: 300px;
 }
+
+
+
+.search-section {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 20px;
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.name-description {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.room-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.room-card-header {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.room-card-body {
+  font-size: 1em;
+}

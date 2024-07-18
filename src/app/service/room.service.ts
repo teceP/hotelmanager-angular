@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Room } from './room';
 import { Observable, of, throwError } from 'rxjs';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs';
-import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
+import { ErrorDialogComponent } from '../components/error-dialog/error-dialog.component';
+import { Room } from '../model/room';
 
 @Injectable({
   providedIn: 'root'

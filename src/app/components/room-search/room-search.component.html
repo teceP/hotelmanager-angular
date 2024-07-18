@@ -1,0 +1,64 @@
+<h2>Search Rooms</h2>
+
+<section class="search-section">
+  <div class="filter-container">
+    <form [formGroup]="searchForm" (ngSubmit)="search()" class="search-form">
+      <div class="name-description">
+        <div>
+          <label for="name">Name: </label>
+          <input type="text" id="name" formControlName="name">
+        </div>
+        <div>
+          <label for="description">Description: </label>
+          <input type="text" id="description" formControlName="description">
+        </div>
+      </div>
+      <div class="filters">
+        <div>
+          <label for="hasMinibar">Has Minibar: </label>
+          <select id="hasMinibar" formControlName="hasMinibar">
+            <option value="">Any</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+        <div>
+          <label for="roomSize">Room Size: </label>
+          <select id="roomSize" formControlName="roomSize">
+            <option value="">Any</option>
+            <option value="SINGLE">Single</option>
+            <option value="DOUBLE">Double</option>
+            <option value="SUITE">Suite</option>
+          </select>
+        </div>
+        <div class="date-picker-container">
+          <mat-form-field appearance="fill">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+              <input matStartDate formControlName="start" placeholder="Start date">
+              <input matEndDate formControlName="end" placeholder="End date">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+        </div>
+      </div>
+      <button class="primary" type="submit">Search</button>
+    </form>
+  </div>
+  <div class="search-results">
+    <div *ngFor="let room of rooms" class="room-card" routerLink="/details/{{room.id}}">
+      <div class="room-card-header">
+        <h3>{{ room.name }}</h3>
+      </div>
+      <div class="room-card-body">
+        <p><strong>Description:</strong> {{ room.description }}</p>
+        <p><strong>Room Size:</strong> {{ firstCharUpper(room.roomSize) }}</p>
+        <p><strong>Minibar:</strong> {{ room.hasMinibar ? 'Yes' : 'No' }}</p>
+      </div>
+    </div>
+    <section *ngIf="rooms.length === 0 && searchForm.value.name.trim()">
+      <p>No rooms found. Total rooms count: {{ roomTotalCount$ | async }}</p>
+    </section>
+  </div>
+</section>

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { RoomService } from '../room.service';
-import { Room } from '../room';
 import { catchError, Observable, of, tap } from 'rxjs';
-import { MessageService } from '../message.service';
 import { Router } from '@angular/router';
+import { RoomService } from '../../service/room.service';
+import { MessageService } from '../../service/message.service';
+import { Room } from '../../model/room';
 
 @Component({
   selector: 'app-room-add',

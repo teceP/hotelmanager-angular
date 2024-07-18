@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { RoomDetailsComponent } from './room-details/room-details.component';
-import { RoomAddComponent } from './room-add/room-add.component';
-import { RoomEditComponent } from './room-edit/room-edit.component';
-import { RoomSearchComponent } from './room-search/room-search.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { RoomDetailsComponent } from './components/room-details/room-details.component';
+import { RoomAddComponent } from './components/room-add/room-add.component';
+import { RoomEditComponent } from './components/room-edit/room-edit.component';
+import { RoomSearchComponent } from './components/room-search/room-search.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},

@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { Room } from '../room';
 import { Location } from '@angular/common';
-import { RoomService } from '../room.service';
 import { ActivatedRoute } from '@angular/router';
-import { BookingService } from '../booking.service';
 import { Router } from '@angular/router';
+import { RoomService } from '../../service/room.service';
+import { BookingService } from '../../service/booking.service';
+import { Room } from '../../model/room';
 @Component({
   selector: 'app-room-details',
   templateUrl: './room-details.component.html',

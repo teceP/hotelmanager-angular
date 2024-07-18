@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Room } from '../room';
-import { RoomService } from '../room.service';
+import { RoomService } from '../../service/room.service';
+import { Room } from '../../model/room';
 
 @Component({
   selector: 'app-dashboard',

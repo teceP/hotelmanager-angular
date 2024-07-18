@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Room } from './room';
 import { Observable, of, throwError } from 'rxjs';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs';
-import { Booking } from './booking';
 import { MatDialog } from '@angular/material/dialog';
-import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
-import { environment } from '../environments/environment';
 import { error } from 'console';
+import { environment } from '../../environments/environment';
+import { Booking } from '../model/booking';
+import { Room } from '../model/room';
+import { ErrorDialogComponent } from '../components/error-dialog/error-dialog.component';
 
 @Injectable({
   providedIn: 'root'

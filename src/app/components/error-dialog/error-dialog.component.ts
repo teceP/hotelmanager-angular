@@ -1,6 +1,6 @@
 import { Component, Inject, Injectable } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { ApiError } from '../api-error';
+import { ApiError } from '../../model/api-error';
 
 @Component({
   selector: 'app-error-dialog',
