@@ -17,31 +17,28 @@ export class BookingAddComponent {
 
   readonly range = new FormGroup({
     start: new FormControl<Date | null>(null),
-    end: new FormControl<Date | null>(null)
+    end: new FormControl<Date | null>(null),
   });
 
   constructor(private bookingService: BookingService, private router: Router, private messageService: MessageService){}
 
-  addBooking(): void {
-    const startDate = this.range.get('start')?.value;
-    const endDate = this.range.get('end')?.value;
-
-    console.log("start: " + startDate)
-    console.log("end: " + endDate)
+  createBooking(): void {
+    var startDate = this.range.get('start')?.value;
+    var endDate = this.range.get('end')?.value;
 
     if (!startDate || !endDate) {
       console.error('Start date and end date are required.');
       return;
     }
 
-    this.bookingService.addBooking(this.roomId, startDate, endDate)
-    .pipe(
-      tap(booking => {
-      console.log('Booking added successfully.');
-          this.router.navigateByUrl(`/details/${this.roomId}`);
-    }),
-  catchError(this.handleError<Booking>('addBooking')))
-      .subscribe();
+    this.bookingService.createBooking(this.roomId, startDate, endDate)
+      .pipe(
+        tap(booking => {
+        console.log('Booking added successfully.');
+            this.router.navigateByUrl(`/details/${this.roomId}`);
+      }),
+    catchError(this.handleError<Booking>('addBooking')))
+        .subscribe();
   }
 
   private log(message: string){

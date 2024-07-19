@@ -15,7 +15,6 @@ import { ErrorDialogComponent } from '../components/error-dialog/error-dialog.co
 })
 export class BookingService {
 
-  //private hotelmanagerUrl = '/url/api/v1/bookings';
   private apiUrl = `${environment.apiUrl}/api/v1/bookings`;
   
   httpOptions = {
@@ -24,10 +23,16 @@ export class BookingService {
 
   constructor(private http: HttpClient, 
     private messageService: MessageService,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog){}
 
-    addBooking(roomId: number, startDate?: Date, endDate?: Date) {
+    createBooking(roomId: number, startDateUnf?: Date, endDateUnf?: Date) {
+
+      var tzOffset = (new Date()).getTimezoneOffset() * 60000;
+      const startDate = (new Date(startDateUnf!.getTime() - tzOffset)).toISOString().split("T")[0];
+      const endDate = (new Date(endDateUnf!.getTime() - tzOffset)).toISOString().split("T")[0];
+
       const body = { startDate, endDate };
+      console.log("body: " + body.startDate + ", " + body.endDate);
   
       return this.http.post<any>(`${this.apiUrl}/${roomId}`, body)
         .pipe(

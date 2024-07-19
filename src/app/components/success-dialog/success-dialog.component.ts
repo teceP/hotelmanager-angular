@@ -3,13 +3,12 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ApiError } from '../../model/api-error';
 
 @Component({
-  selector: 'app-error-dialog',
-  templateUrl: './error-dialog.component.html',
-  styleUrl: './error-dialog.component.css',
+  selector: 'app-success-dialog',
+  templateUrl: './success-dialog.component.html',
+  styleUrl: './success-dialog.component.css'
 })
-
-export class ErrorDialogComponent{
-  constructor(public dialogRef: MatDialogRef<ErrorDialogComponent>,
+export class SuccessDialogComponent {
+  constructor(public dialogRef: MatDialogRef<SuccessDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ApiError) { }
     close() {
       this.dialogRef.close();

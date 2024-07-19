@@ -16,9 +16,10 @@ import { MatNativeDateModule, provideNativeDateAdapter } from '@angular/material
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-import { JsonPipe } from '@angular/common';
+import { DatePipe, JsonPipe } from '@angular/common';
 import { BookingAddComponent } from './components/booking-add/booking-add.component';
 import { CommonModule } from '@angular/common';
+import { SuccessDialogComponent } from './components/success-dialog/success-dialog.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CommonModule } from '@angular/common';
     RoomSearchComponent,
     RoomAddComponent,
     RoomEditComponent,
-    BookingAddComponent
+    BookingAddComponent,
+    SuccessDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,7 @@ import { CommonModule } from '@angular/common';
     MatInputModule,
     MatCardModule,
     JsonPipe,
-    CommonModule
+    CommonModule,
   ],
   providers: [
     provideClientHydration(),
@@ -50,6 +52,7 @@ import { CommonModule } from '@angular/common';
     provideAnimationsAsync(),
     provideNativeDateAdapter(),
     provideHttpClient(withFetch()),
+    DatePipe,
   ],
   bootstrap: [AppComponent]
 })
