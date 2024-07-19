@@ -26,6 +26,9 @@ export class BookingAddComponent {
     const startDate = this.range.get('start')?.value;
     const endDate = this.range.get('end')?.value;
 
+    console.log("start: " + startDate)
+    console.log("end: " + endDate)
+
     if (!startDate || !endDate) {
       console.error('Start date and end date are required.');
       return;

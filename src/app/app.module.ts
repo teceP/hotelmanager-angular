@@ -18,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { JsonPipe } from '@angular/common';
 import { BookingAddComponent } from './components/booking-add/booking-add.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { BookingAddComponent } from './components/booking-add/booking-add.compon
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    JsonPipe
+    JsonPipe,
+    CommonModule
   ],
   providers: [
     provideClientHydration(),

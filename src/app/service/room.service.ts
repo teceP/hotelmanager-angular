@@ -13,7 +13,6 @@ import { Room } from '../model/room';
 })
 export class RoomService {
 
-  //private hotelmanagerUrl = '/url/api/v1/rooms';
   private apiUrl = `${environment.apiUrl}/api/v1/rooms`;
 
   httpOptions = {
@@ -125,7 +124,7 @@ export class RoomService {
 
   private openErrorDialog(error: any): void {
     this.dialog.open(ErrorDialogComponent, {
-      data: error,
+      data: error.error,
     });
   }
 }

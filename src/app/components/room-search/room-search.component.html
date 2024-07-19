@@ -3,20 +3,18 @@
 <section class="search-section">
   <div class="filter-container">
     <form [formGroup]="searchForm" (ngSubmit)="search()" class="search-form">
-      <div class="name-description">
         <div>
           <label for="name">Name: </label>
-          <input type="text" id="name" formControlName="name">
+          <input type="text" id="name" formControlName="name" (ngModelChange)="search()">
         </div>
         <div>
           <label for="description">Description: </label>
-          <input type="text" id="description" formControlName="description">
+          <input type="text" id="description" formControlName="description" (ngModelChange)="search()">
         </div>
-      </div>
       <div class="filters">
         <div>
           <label for="hasMinibar">Has Minibar: </label>
-          <select id="hasMinibar" formControlName="hasMinibar">
+          <select id="hasMinibar" formControlName="hasMinibar" (change)="search()">
             <option value="">Any</option>
             <option value="true">Yes</option>
             <option value="false">No</option>
@@ -24,7 +22,7 @@
         </div>
         <div>
           <label for="roomSize">Room Size: </label>
-          <select id="roomSize" formControlName="roomSize">
+          <select id="roomSize" formControlName="roomSize" (change)="search()">
             <option value="">Any</option>
             <option value="SINGLE">Single</option>
             <option value="DOUBLE">Double</option>

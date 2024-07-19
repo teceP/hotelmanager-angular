@@ -73,7 +73,7 @@ export class BookingService {
 
   private openErrorDialog(error: any): void {
     this.dialog.open(ErrorDialogComponent, {
-      data: error,
+      data: error.error,
     });
   }
 }
